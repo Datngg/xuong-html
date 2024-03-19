@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header ">
+        <div class="container m-auto">
+            <div class="header-inner flex h-28 items-center justify-center space-x-64">
+                <a href="" class="header__logo ">
+                    <img src="../assets/logo.svg" alt="" />
+                </a>
+                <!-- <div class="button-mobile"><button>=</button></div> -->
+                <nav class="main-menu">
+                    <ul class="main-menu__list flex space-x-10 font-semibold">
+                        <li class="main-menu__item">
+                            <a href="../index.html " class="main-menu__link text-lg">Home</a>
+                        </li>
+                        <li class="main-menu__item">
+                            <a href="/shop.html" class="main-menu__link text-lg">Shop</a>
+                        </li>
+                        <li class="main-menu__item">
+                            <a href="" class="main-menu__link text-lg">About</a>
+                        </li>
+                        <li class="main-menu__item">
+                            <a href="" class="main-menu__link text-lg">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-items flex space-x-8">
+                    <div class="header-item-user">
+                        <span><img src="../assets/icons/1.svg" /></span>
+                    </div>
+                    <div class="header-item-user">
+                        <span><img src="../assets/icons/2.svg" /></span>
+                    </div>
+                    <div class="header-item-user">
+                        <span><img src="../assets/icons/3.svg" /></span>
+                    </div>
+                    <div class="header-item-user">
+                        <span><img src="../assets/icons/4.svg" /></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="banner">
+        <img src="https://picsum.photos/id/10/1440/500" alt="" class="banner__img w-full" />
+    </section>
+    <!--End .banner-->
+    <section class="cart-total flex w-full justify-center space-x-28 mt-10">
+        <div class="w-1/2">
+            <div class="grid grid-cols-6 gap-6 bg-orange-300 h-10 items-center">
+                <div><a href="../index.html " class="main-menu__link text-lg">Product</a></div>
+                <div><a href="/shop.html" class="main-menu__link text-lg">Price</a></div>
+                <div><a href="" class="main-menu__link text-lg">Quantity</a></div>
+                <div><a href="../index.html " class="main-menu__link text-lg    ">Image Product</a></div>
+            </div>
+            <div class="grid grid-cols-6 gap-6 mt-10 items-center">
+
+                <div>
+                    <p>Tên sản phẩm</p>
+                </div>
+                <div>
+                    <p>25000000đ</p>
+                </div>
+                <div>
+                    <input type="text" id="quantity" name="quantity" value="1">
+                    <button class="border border-black text-black px-4 py-2 rounded-md  text-center"
+                        onclick="increaseValue()">+</button>
+                    <button class="border border-black text-black px-4 py-2 rounded-md  text-center"
+                        onclick="decreaseValue()">-</button>
+                </div>
+                <div><img src="https://picsum.photos/id/10/108/105" alt=""></div>
+                <div></div>
+                <div><img src="../assets/icons/17.svg" alt=""></div>
+
+            </div>
+            <script>
+                function increaseValue() {
+                    var value = parseInt(document.getElementById('quantity').value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value++;
+                    document.getElementById('quantity').value = value;
+                    updateTotal(value);
+                }
+
+                function decreaseValue() {
+                    var value = parseInt(document.getElementById('quantity').value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value = value <= 1 ? 1 : value - 1;
+                    document.getElementById('quantity').value = value;
+                    updateTotal(value);
+                }
+
+                function updateTotal(quantity) {
+                    var pricePerItem = 25000000; // Giả sử giá của mỗi món hàng là 10 đơn vị tiền tệ
+                    var total = quantity * pricePerItem;
+                    document.getElementById('total').textContent = total;
+                }
+            </script>
+        </div>
+        <div class="flex justify-center w-64 h-72 bg-orange-300">
+            <div class="">
+                <h1 class="text-2xl font-bold pt-3 text-center">Cart Totals</h1>
+                <div class="pt-16 mb-16 text-center">
+                    <label for="total">Tổng:</label>
+                    <span id="total">0</span>
+                </div>
+                <a href="/src/checkout.html"
+                    class="border border-black text-black px-4 py-2 rounded-md text-center">Check out</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services mt-10">
+        <div class="container-fluid">
+            <div class="service-list flex justify-center bg-yellow-100 pt-20 pb-20 space-x-32">
+                <div class="service-item">
+                    <img src="../assets/icons/10.svg" class="service__image" />
+                    <div class="service-info">
+                        <h4 class="service__name">High Quality</h4>
+                        <p class="service__description">crafted from top materials</p>
+                    </div>
+                </div>
+                <!--End service-item-->
+                <div class="service-item">
+                    <img src="../assets/icons/11.svg" class="service__image" />
+                    <div class="service-info">
+                        <h4 class="service__name">High Quality</h4>
+                        <p class="service__description">crafted from top materials</p>
+                    </div>
+                </div>
+                <!--End service-item-->
+                <div class="service-item">
+                    <img src="../assets/icons/12.svg" class="service__image" />
+                    <div class="service-info">
+                        <h4 class="service__name">High Quality</h4>
+                        <p class="service__description">crafted from top materials</p>
+                    </div>
+                </div>
+                <!--End service-item-->
+                <div class="service-item">
+                    <img src="../assets/icons/13.svg" class="service__image" />
+                    <div class="service-info">
+                        <h4 class="service__name">High Quality</h4>
+                        <p class="service__description">crafted from top materials</p>
+                    </div>
+                </div>
+                <!--End service-item-->
+            </div>
+        </div>
+    </section>
+    <!--End .services-->
+    <footer class="footer mt-10">
+        <div class="container">
+            <div class="footer-list flex justify-center space-x-28">
+                <div class="footer-item">
+                    <img src="../assets/logo.svg" alt="" />
+                    <p class="footer__address">
+                        400 University Drive Suite 200 Coral Gables, FL 33134 USA
+                    </p>
+                </div>
+                <div class="footer-nav flex space-x-28">
+                    <div class="footer-item">
+                        <h2 class="footer__title pb-10 text-black text-opacity-50">Links</h2>
+                        <ul class="footer-menu-list">
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Home</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Shop</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Blog</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-item">
+                        <h2 class="footer__title pb-10 text-black text-opacity-50">Help</h2>
+                        <ul class="footer-menu-list">
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Payment Options</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Returns</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Privacy Policies</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <a href="" class="footer-menu-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-item">
+                    <h2 class="footer__title text-black text-opacity-50">Newsletter</h2>
+                    <form action="" class="newsletter">
+                        <input type="text" class="newsletter__input underline" placeholder="Enter Your Email Address" />
+                        <button class="newsletter__btn underline">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <p class="copyright pl-48">2023 furino. All rights reverved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
